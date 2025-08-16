@@ -30,3 +30,8 @@ __pycache__/
 node_modules/
 .next/
 dist/
+# Ignore saved ML models
+backend/saved_emu_model/
+
+
+
