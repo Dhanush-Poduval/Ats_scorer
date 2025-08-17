@@ -3,7 +3,18 @@ from models import Job
 from sentence_transformers import SentenceTransformer , util
 import PyPDF2
 import io
+from fastapi.middleware.cors import CORSMiddleware
+
 app=FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or ["http://localhost:3000"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 #this will just show the model wil be using minilm
 model = SentenceTransformer("all-MiniLM-L6-v2")
 #this is the function that will give us the text from the pdf , basically from bytes to text 
